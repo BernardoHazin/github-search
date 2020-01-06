@@ -19,23 +19,23 @@ function Avatar(props) {
       <p className="bio">{props.user.bio}</p>
       <div className="info">
         <img src={organizationIcon} alt="Company" className="icon" />
-        <p className="description">{props.user.company}</p>
+        <p className="description">{props.user.company || '-'}</p>
       </div>
       <div className="info">
         <img src={locationIcon} alt="Location" className="icon" />
-        <p className="description">{props.user.location}</p>
+        <p className="description">{props.user.location || '-'}</p>
       </div>
       <div className="info">
         <img src={starIcon} alt="Starred Repositories" className="icon" />
-        <p className="description">{props.user.starred}</p>
+        <p className="description">{props.user.starred || '-'}</p>
       </div>
       <div className="info">
         <img src={repositoriesIcon} alt="Repositories" className="icon" />
-        <p className="description">{props.user.repositories}</p>
+        <p className="description">{props.user.repositories || '-'}</p>
       </div>
       <div className="info">
         <img src={followersIcon} alt="Followers" className="icon" />
-        <p className="description">{props.user.followers}</p>
+        <p className="description">{props.user.followers || '-'}</p>
       </div>
     </div>
   )

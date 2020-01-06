@@ -59,6 +59,8 @@ function Profile() {
 
   if (!data.user) return <NotFound />
 
+  console.log(data.user)
+
   const userData = {
     name: data.user.name,
     bio: data.user.bio,
@@ -74,7 +76,10 @@ function Profile() {
   return (
     <div className="profile-container">
       <Avatar user={userData} className="avatar" />
-      <Repositories className="repositories" />
+      <Repositories
+        repositories={data.user.repositories.nodes}
+        className="repositories"
+      />
     </div>
   )
 }
