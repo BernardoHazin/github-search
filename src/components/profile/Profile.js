@@ -5,6 +5,7 @@ import { gql } from 'apollo-boost'
 import { useParams } from 'react-router-dom'
 import NotFound from './NotFound'
 import Loading from './Loading'
+import Error from './Error'
 import Avatar from './Avatar'
 import Repositories from './Repositories'
 
@@ -48,12 +49,12 @@ function Profile() {
   if (loading) return <Loading />
 
   if (error) {
-    console.log()
+    console.log(error.graphQLErrors)
     return error.graphQLErrors &&
       error.graphQLErrors.map(({ type }) => type).includes('NOT_FOUND') ? (
       <NotFound />
     ) : (
-      <p>Error :(</p>
+      <Error />
     )
   }
 

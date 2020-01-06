@@ -1,6 +1,7 @@
 .logo-container > .title {
   display: flex;
   flex-direction: row;
+  font-weight: 200;
   align-items: baseline;
   color: #000000;
 }

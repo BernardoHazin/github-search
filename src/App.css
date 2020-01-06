@@ -18,6 +18,11 @@
   src: url('./assets/fonts/Raleway-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Monaco';
+  src: url('./assets/fonts/Monaco.ttf');
+}
+
 .font-anonymous {
   font-family: Monaco;
 }
