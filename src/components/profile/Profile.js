@@ -1,50 +1,18 @@
 import React from 'react'
 import './Profile.css'
 import { useQuery } from '@apollo/react-hooks'
-import { gql } from 'apollo-boost'
 import { useParams } from 'react-router-dom'
 import NotFound from './NotFound'
 import Loading from './Loading'
 import Error from './Error'
 import Avatar from './Avatar'
 import Repositories from './Repositories'
-
-const FETCH_USER = (user) => gql`
-query {
-  user(login: "${user}") {
-    name
-    email
-    bio
-    company
-    location
-    starredRepositories {
-      totalCount
-    }
-    repositories(first: 5, orderBy: {direction: DESC, field: STARGAZERS}) {
-      totalCount
-      nodes {
-        name
-        description
-        stargazers {
-          totalCount
-        }
-      }
-    }
-    followers {
-      totalCount
-    }
-    following {
-      totalCount
-    }
-    avatarUrl
-  } 
-}
-`
+import UserQuery from '../../Queries/user'
 
 function Profile() {
   const { user } = useParams()
 
-  const { loading, error, data } = useQuery(FETCH_USER(user))
+  const { loading, error, data } = useQuery(UserQuery(user))
 
   if (loading) return <Loading />
 
