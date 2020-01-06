@@ -5,7 +5,7 @@ const client = new ApolloClient({
   headers: {
     Authorization:
       process.env.AUTH_TOKEN ||
-      'Bearer 3adc30e2402bc729a3ec46822f21b927139191bf'
+      'Bearer 367b8709fa9d44eff6cd8e1cfed89c94de024013'
   }
 })
 
