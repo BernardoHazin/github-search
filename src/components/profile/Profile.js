@@ -7,12 +7,14 @@ import Loading from './Loading'
 import Error from './Error'
 import Avatar from './Avatar'
 import Repositories from './Repositories'
-import UserQuery from '../../Queries/user'
+import USER_QUERY from '../../Queries/user'
 
 function Profile() {
   const { user } = useParams()
 
-  const { loading, error, data } = useQuery(UserQuery(user))
+  const { loading, error, data } = useQuery(USER_QUERY, {
+    variables: { user }
+  })
 
   if (loading) return <Loading />
 
