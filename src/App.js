@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from '@apollo/react-hooks'
+import client from './apolloClient'
+import React from 'react'
+import Home from './components/home/Home'
+import Profile from './components/profile/Profile'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css'
+import Toolbar from './components/profile/Toolbar'
 
-function App() {
+// Params are placeholders in the URL that begin
+// with a colon, like the `:id` param defined in
+// the route in this example. A similar convention
+// is used for matching dynamic segments in other
+// popular web frameworks like Rails and Express.
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <ApolloProvider client={client}>
+        <Switch>
+          <Route path="/:user">
+            <Toolbar />
+            <Profile />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </ApolloProvider>
+    </Router>
+  )
 }
-
-export default App;

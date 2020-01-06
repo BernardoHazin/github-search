@@ -1,0 +1,20 @@
+.logo-container > .title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  color: #000000;
+}
+
+.logo-container > .title > i {
+  font-weight: 200;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.fs-60 {
+  font-size: 60px;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
